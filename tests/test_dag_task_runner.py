@@ -13,6 +13,7 @@ def create_dict_from_stdout(result):
                 result_dict[node_id].append(float(timestamp))
             else:
                 result_dict[node_id] = [float(timestamp)]
+    print(result_dict)
     return result_dict
 
 def test_dag_task_runner():
@@ -44,13 +45,14 @@ def test_combo_long_and_short_running_vertices():
 def test_vertices_with_multiple_parents():
     '''
     Here we want to ensure that a DAG that has a non-starting node with multiple parents, such as node D in the example
-    below, will print D twice (once at 3 seconds elapsed, and again at 10 seconds elapsed):
+    below, will print D twice (once at 8 seconds elapsed, and again at 10 seconds elapsed):
+
     A--(5)--B--(3)--D
      \             /
-      C----(3)----/
+      -(7)--C--(3)-
     '''
     runner = CliRunner()
     result = runner.invoke(main, ['--dag_json', 'data/multiple_parent_nodes.json'])
     result_dict = create_dict_from_stdout(result)
-    assert round(result_dict['D'][0] - result_dict['A'][0], 1) == 3
-    assert round(result_dict['D'][1] - result_dict['A'][0], 1) == 8
+    assert round(result_dict['D'][0] - result_dict['A'][0], 1) == 8
+    assert round(result_dict['D'][1] - result_dict['A'][0], 1) == 10
