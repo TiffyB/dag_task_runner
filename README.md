@@ -1,6 +1,6 @@
 # DAG Task Runner
 
-A workflow runner script that accepts a DAG represented in JSON and outputs the letter of each vertex after the prescribed elapsed time defined by the edges
+A workflow runner script that accepts a DAG represented in JSON and outputs the letter of each vertex after the prescribed elapsed time defined by the edges.
 
 ## Setup
 
@@ -27,10 +27,13 @@ python scripts/dag_task_runner.py --dag_json data/dag_example.json
 Once running, you'll see the printout of nodes and the time they were printed at, i.e.:
 
 ```
-Node: A, Timestamp: 1709062016.0527518
-Node: B, Timestamp: 1709062021.0554729
-Node: C, Timestamp: 1709062023.056127
-Node: D, Timestamp: 1709062024.058493
+Node: A, Timestamp: 1709063290.889846
+Node: B, Timestamp: 1709063295.8946261
+Node: C, Timestamp: 1709063297.8947148
+Node: E, Timestamp: 1709063297.8948328
+Node: F, Timestamp: 1709063298.899458
+Node: G, Timestamp: 1709063307.894979
+Node: D, Timestamp: 1709063307.895016
 ...
 ```
 
