@@ -6,11 +6,11 @@ My solution's code can be found in the scripts/dag_task_runner.py file.
 
 ## Setup
 
-This task runner was built on Python 3.11.2 using [pyenv](https://github.com/pyenv/pyenv). To get set up, run:
+This task runner was built on Python 3.11.4 using [pyenv](https://github.com/pyenv/pyenv). To get set up, run:
 
 ```
-pyenv install 3.11.2
-pyenv local 3.11.2
+pyenv install 3.11.4
+pyenv local 3.11.4
 ```
 
 Then download the project requirements by running:
