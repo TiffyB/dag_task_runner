@@ -1,12 +1,8 @@
 import sys
 import json
 import click
-import sched, time
-
-from collections import namedtuple
-
-Task = namedtuple('Task', ['run_time', 'node_id'])
-
+import sched
+import time
 
 @click.command()
 @click.option("--dag_json", default="data/dag_example.json")
