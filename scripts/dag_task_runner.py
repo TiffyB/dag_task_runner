@@ -45,15 +45,9 @@ def print_node_and_time(node_id):
 def create_task_runner(tasks, dag_json_obj, scheduler, start_time):
     for node_id, task_run_time in tasks.items():
         scheduler.enterabs(start_time + task_run_time, 1, print_node_and_time, (node_id,))
-        # breadth_first_search(node_id, dag_json_obj, scheduler, start_time + task_run_time)
-
         child_tasks = dag_json_obj[node_id]["edges"]
         create_task_runner(child_tasks, dag_json_obj, scheduler, start_time + task_run_time)
-    # return scheduler.queue
-
-def breadth_first_search(current_node_id, dag_json_obj, scheduler, start_time):
-    if tasks := dag_json_obj[current_node_id]["edges"]:
-        create_task_runner(tasks, dag_json_obj, scheduler, start_time)
+    return scheduler.queue
 
 
 if __name__ == "__main__":
